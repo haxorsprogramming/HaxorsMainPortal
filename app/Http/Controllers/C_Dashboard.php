@@ -8,6 +8,10 @@ class C_Dashboard extends Controller
 {
     public function DashboardPage()
     {
+        return view('dashboard.dashboardPage');
+    }
+    public function BerandaPage()
+    {
         
     }
 }
