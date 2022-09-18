@@ -27,3 +27,5 @@ Route::get('/registrasi/member/list', [C_Member::class, 'DataRegistrasiMember'])
 
 // soal 
 Route::get('/soal/list', [C_Soal::class, 'DataSoal']);
+Route::post('/soal/create/process', [C_Soal::class, 'ProsesTambahSoal']);
+Route::post('/soal/delete/process', [C_Soal::class, 'ProsesHapusSoal']);

@@ -135,7 +135,7 @@
 
     function deleteTokenAtc(id) {
         confirmQuest('info', 'Konfirmasi', 'Hapus token member? (Menghapus token akan menghapus data member)', function(x) {
-            konfirmasiHapusToken(id)
+            konfirmasiHapusToken(id);
         });
     }
 

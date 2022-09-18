@@ -130,6 +130,16 @@
                                     <a href="javascript:void(0)" onclick="renderPage('soal/list', 'Data Soal')" class="dropdown-item">Data Soal</a>
                                 </div>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle arrow-none" href="javascript:void(0)" id="topnav-layout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="mdi mdi-database mr-2"></i>Data Online Test <div class="arrow-down"></div>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="topnav-layout">
+                                    <a href="javascript:void(0)" onclick="renderPage('registrasi/token/list', 'Token Registrasi Member')" class="dropdown-item">Data Jawaban</a>
+                                    <a href="javascript:void(0)" onclick="renderPage('registrasi/member/list', 'Data Registrasi Member')" class="dropdown-item">Data Registrasi Member</a>
+                                    <a href="javascript:void(0)" onclick="renderPage('soal/list', 'Data Soal')" class="dropdown-item">Data Soal</a>
+                                </div>
+                            </li>
                             
                             <li class="nav-item">
                                 <a class="nav-link" href="javascript:void(0)" onclick="renderPage('app/laporan/data', 'Laporan Apriori')">

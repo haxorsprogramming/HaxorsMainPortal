@@ -16,11 +16,24 @@
                             <tr>
                                 <th>#</th>
                                 <th>Kd Soal</th>
-                                <th>Soal</th>
+                                <th style="width: 800px;">Soal</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            
+                        @foreach($dataSoal as $soal)
+                        <tr>
+                            <td>{{ $loop -> iteration }}</td>
+                            <td>{{ $soal -> kode_soal }}</td>
+                            <td>{{ $soal -> soal }}</td>
+                            <td>
+                            <a class="btn btn-warning btn-sm waves-effect waves-light" href="javascript:void(0)" onclick="deleteSoal('{{ $soal -> kode_soal }}')">
+                                        <i class="mdi mdi-folder-edit-outline"></i>
+                                        Hapus
+                                    </a>
+                            </td>
+                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -80,12 +93,41 @@
     function konfirmasiCreateSoal()
     {
         let isiSoal = document.querySelector("#txtSoal").value;
-        let ds = {'isi':isi}
+        let ds = {'isi':isiSoal}
         let rProsesCreateSoal = server + "soal/create/process";
 
         axios.post(rProsesCreateSoal, ds).then(function(res){
-            
+            $("#modalTambahSoal").modal("hide");
+            setTimeout(function() {
+                if (res.data.status === "sukses") {
+                    pesanUmumApp('success', 'Sukses', 'Soal berhasil dicreate');
+                    renderPage('soal/list', 'Data Soal');
+                } else {
+
+                }
+
+            }, 300);
+
         });
+    }
+
+    function deleteSoal(kdSoal)
+    {
+        confirmQuest('info', 'Konfirmasi', 'Hapus soal? ... ', function(x) {
+            konfirmasiHapusSoal(kdSoal);
+        });
+    }
+
+    function konfirmasiHapusSoal(kdSoal)
+    {
+        let ds = {'kd':kdSoal}
+        let rProsesDeleteSoal = server + "soal/delete/process";
+
+        axios.post(rProsesDeleteSoal, ds).then(function(res){
+            pesanUmumApp('success', 'Sukses', 'Soal berhasil dihapus');
+            renderPage('soal/list', 'Data Soal');
+        });
+
     }
 
 </script>
